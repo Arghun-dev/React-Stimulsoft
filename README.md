@@ -88,9 +88,6 @@ class UsersReport extends React.Component {
     render() {
         return (
             <>
-                <link rel="stylesheet" href="./stimulsoft.viewer.office2013.whiteblue.css" />
-                <script src="./stimulsoft.reports.js"></script>
-                <script src="./stimulsoft.viewer.js"></script>
                 <div id="viewer"></div>;
             </>
         )
