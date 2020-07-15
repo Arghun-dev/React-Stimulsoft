@@ -4,6 +4,8 @@
 
 **First you have to notice that you should copy and paste the `.txt` file to the same folder with your component. This is really `important`**
 
+**VERRRYYY IMPORTANT POINT: When you created the mrt file, firt convert it to .txt file. Then to use it you have to remember that you have to copy this `.txt` file to both `public folder` and `src folder` to be able to use it. VEEERYYYYY `IMPORTANT`**
+
 1. Create a folder called `stimulsoft` in public folder and copy the script tags and stylesheet links to it.
 
 2. in head section of index.html: Add the stylesheet Link tag
