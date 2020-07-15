@@ -2,7 +2,7 @@
 
 ### initialze Stimulsoft in React
 
-**First you have to notice that you should copy and paste the `.txt` file to your `public` folder. This is really `important`**
+**First you have to notice that you should copy and paste the `.txt` file to the same folder with your component. This is really `important`**
 
 1. Create a folder called `stimulsoft` in public folder and copy the script tags and stylesheet links to it.
 
