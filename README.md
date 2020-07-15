@@ -64,4 +64,77 @@ export default App;
 
 **As you can see I have loaded File of stimulsoft as `.txt` file not `.mrt`**
 
+Then You have to bind the data. You have to setData to your Report.
+
+To do that correctly read the following example:
+
+Full Example:
+
+```js
+import React from 'react';
+
+// Redux
+import { connect } from 'react-redux';
+
+class UsersReport extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            users: null
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <link rel="stylesheet" href="./stimulsoft.viewer.office2013.whiteblue.css" />
+                <script src="./stimulsoft.reports.js"></script>
+                <script src="./stimulsoft.viewer.js"></script>
+                <div id="viewer"></div>;
+            </>
+        )
+    }
+
+    componentWillMount() {
+        if (this.props.users.loading) {
+            return <div>loading...</div>
+        } else if (this.props.users.users?.resultBody?.length > 0) {
+            this.setState({
+                users: this.props.users.users.resultBody
+            })
+        }
+    }
+
+    componentDidMount() {
+        console.log('Creating a new report instance');
+        var report = new window.Stimulsoft.Report.StiReport();
+
+        console.log('Load report from url');
+        report.loadFile('newDt.txt');
+
+        const VarJson = JSON.stringify(this.state.users);
+        var dataSet = new window.Stimulsoft.System.Data.DataSet("dt");
+        dataSet.readJson(VarJson);
+        report.regData(dataSet.dataSetName, "", dataSet)
+
+        var viewer = new window.Stimulsoft.Viewer.StiViewer(null, 'StiViewer', false);
+
+        console.log('Assigning report to the viewer, the report will be built automatically after rendering the viewer');
+        viewer.report = report;
+
+        console.log('Rendering the viewer to selected element');
+        viewer.renderHtml('viewer');
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps)(UsersReport);
+```
+
 That's it!!!
