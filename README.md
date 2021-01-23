@@ -135,3 +135,8 @@ export default connect(mapStateToProps)(UsersReport);
 ```
 
 That's it!!!
+
+
+### Persian Date with /
+
+`{Persian(Table.formDate.ToString().Substring(0, 4) +"/"+Table.formDate.ToString().Substring(4, 2)+"/"+Table.formDate.ToString().Substring(6, 2))}`
